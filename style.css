@@ -24,17 +24,54 @@ body {
   );
 }
 
-.form-group {
+.container-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
   position: relative;
-  margin-bottom: 2rem;
+  background: #ffffff;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.container-form::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 140%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 36, 26, 1) 0%,
+    rgba(101, 214, 105, 0.914) 0%,
+    rgba(78, 172, 96, 1) 39%,
+    rgb(106, 196, 122) 98%
+  );
+  animation: CorBorda 3s ease-out infinite;
+}
+
+@keyframes CorBorda {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container-form::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: #ffffff;
 }
 
 .form-container {
-  background-color: white;
-  width: 300px;
-  height: 300px;
-  padding: 1rem;
-  border-radius: 8px;
+  z-index: 1;
+  width: 100%;
 }
 
 .form-container [type="text"],
@@ -91,8 +128,14 @@ body {
   border-bottom: solid 2px rgba(78, 172, 96, 1);
 }
 
+.form-group {
+  position: relative;
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+
 @media (max-width: 280px) {
-  .form-container {
+  .container-form {
     max-width: 250px;
   }
 }
