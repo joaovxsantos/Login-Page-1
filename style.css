@@ -69,6 +69,13 @@ body {
   background: #ffffff;
 }
 
+.container-form label {
+  z-index: 1;
+  margin-top: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .form-container {
   z-index: 1;
   width: 100%;
